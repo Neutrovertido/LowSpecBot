@@ -1,0 +1,22 @@
+{
+  "name": "lowspecbot",
+  "version": "1.0.0",
+  "description": "Discord Bot for LowSpecGuys",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neutrovertido/LowSpecBot.git"
+  },
+  "author": "Neutrovertido",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Neutrovertido/LowSpecBot/issues"
+  },
+  "homepage": "https://github.com/Neutrovertido/LowSpecBot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
+}
