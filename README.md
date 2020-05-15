@@ -20,7 +20,7 @@ __❗ IMPORTANT NOTE:__ The bot will only initialize with the proper token key, 
 3. Execute the following command in your terminal/console (by using cd to the LowSpecBot directory):  
 `npm install`  
 and next:  
-`npm .`
+`node .`
 4. 🎉 Congratulations! 🎉 The bot is now executing on your machine! 👏👏👏
 
 ## 📣 Special Thanks:
