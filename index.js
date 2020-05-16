@@ -18,13 +18,19 @@ fs.readFile('token', 'utf-8', (err, data) => {
 });
 
 // Simple Responses
+const helpEmbed = new Discord.MessageEmbed()
+    .setColor('#010101')
+    .setTitle('Current Commands')
+    .setDescription(':one: **_help:** Shows this message\n:two: **_mc:** Displays the secret apple related message\n:three: **_tehc-support:** Gives you tehc support\n:four: **_bot:** Displays the **bot message**!')
+    .setTimestamp();
+
 bot.on('message', msg => {
     switch (msg.content) {
         case '_bot':
             msg.reply("**Windows XP Login Sounds**");
             break;
         case '_help':
-            msg.channel.send("**Current Commands:**\n:one: _help: Shows this message\n:two: _mc: Displays the secret apple related message\n:three: _tehc-support: Gives you tehc support");
+            msg.channel.send(helpEmbed);
             break;
         case '_mc':
             msg.reply("**Manela Canzana**");
