@@ -17,10 +17,21 @@ fs.readFile('token', 'utf-8', (err, data) => {
     console.log("Login successful!");
 });
 
-// Responds at _bot message
+// Simple Responses
 bot.on('message', msg => {
-    if (msg.content === "_bot") {
-        msg.reply("**Windows XP Login Sounds**");
+    switch (msg.content) {
+        case '_bot':
+            msg.reply("**Windows XP Login Sounds**");
+            break;
+        case '_help':
+            msg.channel.send("**Current Commands:**\n:one: _help: Shows this message\n:two: _mc: Displays the secret apple related message\n:three: _tehc-support: Gives you tehc support");
+            break;
+        case '_mc':
+            msg.reply("**Manela Canzana**");
+            break;
+        case '_tehc-support':
+            msg.reply("I'm going to eat you like **banana milkshake**");
+            break;
     }
 });
 
