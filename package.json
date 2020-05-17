@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Neutrovertido/LowSpecBot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0"
   },
   "publishConfig": {
