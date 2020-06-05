@@ -1,9 +1,12 @@
-// Filesystem is required to read the token file
-fs = require('fs');
-
 // Discord API
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+
+// Environment Variables for Debugging
+try {
+    const dotenv = require('dotenv');
+    dotenv.config();
+} finally { }
 
 // Prefixes
 const permittedPrefixes = ['~', '!', '$', '%', '^', '&', '*', '_'];
@@ -57,16 +60,10 @@ bot.on('message', msg => {
     }
 });
 
-// Token Async AUTH Method
-fs.readFile('token', 'utf-8', (err, data) => {
-    if (err) {
-        throw err;
-    }
-    const token = data;
-    
-    bot.login(token);
-    console.log("Login successful!");
-});
+// Token Method
+const token = process.env.TOKEN;
+bot.login(token);
+console.log("Login successful!");
 
 // Execution Confirmation
 console.log("Bot initialized successfully!\nEnjoy the LSG Experience! 🎆")
