@@ -1,5 +1,6 @@
 ![](src/img/banner.png)
 # 📺 LowSpecBot 📺
+![Node.js CI](https://github.com/Neutrovertido/LowSpecBot/workflows/Node.js%20CI/badge.svg)  
 **📖 Description:** Discord Bot whos purpose is to serve at LowSpecGuys Discord Server
 
 ## 📚 Made with:
