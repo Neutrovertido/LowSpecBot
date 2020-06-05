@@ -17,7 +17,7 @@
 __❗ IMPORTANT NOTE:__ The bot will only initialize with the proper token key, so you have to use your __OWN BOT TOKEN__ to use this code.
 1. Clone repository / Download source code.
 2. Make sure you have installed NodeJS 12 with npm.
-3. Go to the LowSpecBot directory and create a file named `token` and inside of it, paste your __bot token__ (remember to use the bot one, since the user one isn't valid.).
+3. Go to the LowSpecBot directory and create a file named `.env` and inside of it, create the environment variable `TOKEN` that will contain __YOUR TOKEN__ (remember to use the bot one, since the user one isn't valid.).
 3. Execute the following command in your terminal/console (by using cd to the LowSpecBot directory):  
 `npm install`  
 and next:  
