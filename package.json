@@ -4,7 +4,7 @@
   "description": "Discord Bot for LowSpecGuys",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node ."
   },
   "repository": {
@@ -25,5 +25,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@Neutrovertido",
     "name": "@Neutrovertido/lowspecbot"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.2.0"
   }
 }
