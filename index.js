@@ -1,7 +1,6 @@
-const Discord = require("discord.js");
-const { prefix } = require("./config.json");
-const { error } = require("console");
 const fs = require("fs");
+const Discord = require("discord.js");
+const { error } = require("console");
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -25,6 +24,8 @@ for (const file of commandFiles) {
 
 // Commands Handling
 bot.on("message", (message) => {
+  const prefix = JSON.parse(fs.readFileSync("./config.json")).prefix;
+
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).trim().split(/ +/);
