@@ -4,12 +4,19 @@ module.exports = {
   name: "avatar",
   description: "Display user avatar.",
   execute(message, args) {
-    const user = message.author;
+    let target = message.author;
+    if (args.length > 0) {
+      try{
+        target = message.mentions.users.first()
+      } catch {
+        console.error("Failed to show tagged user!")
+      }
+    }
     const avatarEmbed = new MessageEmbed()
       .setColor("#FB3B5E")
-      .setTitle(`${user.username}'s avatar:`)
+      .setTitle(`${target.username}'s avatar:`)
       .setImage(
-        `${user.displayAvatarURL({
+        `${target.displayAvatarURL({
           format: "png",
           dynamic: true,
         })}`
