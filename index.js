@@ -24,7 +24,14 @@ for (const file of commandFiles) {
 
 // Commands Handling
 bot.on("message", (message) => {
-  const prefix = JSON.parse(fs.readFileSync("./config.json")).prefix;
+  let prefix;
+  try{
+    prefix = JSON.parse(fs.readFileSync("./config.json")).prefix;
+  } catch {
+    const config = {"prefix":"_"};
+    fs.writeFileSync("./config.json", JSON.stringify(config))
+    prefix = "_";
+  }
 
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
