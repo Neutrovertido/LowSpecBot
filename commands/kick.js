@@ -6,13 +6,18 @@ module.exports = {
     if (author.hasPermission("KICK_MEMBERS")) {
       const target = message.mentions.users.first();
       const reason = args;
+      const actualReason = reason.slice(1, reason.length).join(" ");
       if (target) {
         const member = message.guild.member(target);
         if (member) {
           member
-            .kick(`${target.tag} kicked by ${author.tag}. Reason: ${reason}`)
+            .kick(`Reason: ${actualReason}`)
             .then(() => {
-              message.reply(`Successfully kicked ${target.tag}`);
+              if (reason.length > 0) {
+                message.reply(`Successfully kicked ${reason[0]} for reason: ${actualReason}`);
+              } else {
+                message.reply(`Successfully kicked ${reason[0]}`);
+              }
             })
             .catch((err) => {
               message.reply("I was unable to kick the member");
