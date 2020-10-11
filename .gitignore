@@ -117,3 +117,7 @@ dist
 
 # Token
 .env
+
+# Docker
+Dockerfile
+.dockerignore
