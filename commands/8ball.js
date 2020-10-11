@@ -13,7 +13,6 @@ module.exports = {
         }
         const max = phrases.length
         let seed = Math.floor(Math.random() * (max));
-        console.log(`Attempting to send message: ${phrases[seed]} with seed: ${seed}`);
         message.channel.send(phrases[seed]);
     }
 }
