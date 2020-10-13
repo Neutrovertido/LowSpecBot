@@ -3,7 +3,7 @@ module.exports = {
     description: "Erases the amount messages specified with a maximum of 100",
     execute(message, args) {
         const author = message.guild.member(message.author);
-        if (author.hasPermission("ADMINISTRATOR")) {
+        if (author.hasPermission("MANAGE_MESSAGES")) {
             async function clean() {
                 message.delete();
                 let am = parseInt(args[0]);
@@ -15,7 +15,6 @@ module.exports = {
                 } catch {
                     fetched = await message.channel.messages.fetch({ limit: 1 });
                 }
-                console.log(`Attempting to delete ${qa} messages!`);
                 message.channel.bulkDelete(fetched);
                 message.channel.send(`:recycle: Deleted ${qa} messages!`);
             }
