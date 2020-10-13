@@ -5,19 +5,19 @@ module.exports = {
         const author = message.guild.member(message.author);
         if (author.hasPermission("ADMINISTRATOR")) {
             async function clean() {
-                const am = parseInt(args[0]);
                 message.delete();
+                let am = parseInt(args[0]);
                 let fetched;
-                console.log(am);
-                if (typeof am === "number") {
-                    fetched = await message.channel.messages.fetch({ limit: am });
-                } else {
+                let qa = 1;
+                try{
+                    fetched = await message.channel.messages.fetch({ limit: am});
+                    qa = am;
+                } catch {
                     fetched = await message.channel.messages.fetch({ limit: 1 });
-                    am = 1;
-                    console.log(fetched);
                 }
+                console.log(`Attempting to delete ${qa} messages!`);
                 message.channel.bulkDelete(fetched);
-                message.channel.send(`:recycle: Deleted ${am} messages!`);
+                message.channel.send(`:recycle: Deleted ${qa} messages!`);
             }
             clean();
         } else {
