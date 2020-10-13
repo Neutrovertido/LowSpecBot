@@ -1,17 +1,24 @@
+const fs = require('fs');
 const { MessageEmbed } = require("discord.js");
+
+const commands = fs.readdirSync("./commands").filter((file) => file.endsWith(".js"));
+let description = "";
+
+for (let f of commands) {
+    let command = require(`./${f}`);
+    description += `\n**${command.name}**: ${command.description}`
+}
 
 const helpEmbed = new MessageEmbed()
   .setColor("#010101")
   .setTitle("Current Commands")
-  .setDescription(
-    ":one: **help:** Shows this message\n:two: **mc:** Displays the secret apple related message\n:three: **tehc-support:** Gives you tehc support\n:four: **bot:** Displays the **bot message**!\n:five: **prefix:** Changes the bot prefix.\n\nDefault prefix is **_**."
-  )
+  .setDescription(description)
   .setTimestamp();
 
 module.exports = {
-  name: "help",
-  description: "Help users.",
-  execute(message, args) {
-    message.channel.send(helpEmbed);
-  },
-};
+    name: "help",
+    description: "Prints information about every command",
+    execute(message, args) {
+        message.channel.send(helpEmbed);
+    }
+}
