@@ -23,15 +23,6 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
-                  regitry-url: https://npm.pkg.github.com/
-                  scope: "@OWNER"
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
             - run: npm ci
             - run: npm run build --if-present
             - run: npm test
-            - run: |
-                  echo registry=https://npm.pkg.github.com/OWNER >> .npmrc
-                  npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
