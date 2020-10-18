@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Neutrovertido/LowSpecBot.git"
+    "url": "git://github.com/Neutrovertido/LowSpecBot.git"
   },
   "author": "Neutrovertido",
   "license": "ISC",
@@ -23,8 +23,8 @@
     "dotenv": "^8.2.0"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Neutrovertido",
-    "name": "@Neutrovertido/lowspecbot"
+    "registry": "https://npm.pkg.github.com/@neutrovertido",
+    "name": "@neutrovertido/lowspecbot"
   },
   "devDependencies": {
     "chai": "^4.2.0",
