@@ -19,7 +19,7 @@ jobs:
                   registry-url: https://npm.pkg.github.com/
                   scope: "@OWNER"
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
             - name: "publish package"
               uses: actions/bin/debug@master
               run: |
@@ -28,4 +28,4 @@ jobs:
                   echo registry=https://npm.pkg.github.com/OWNER >> .npmrc
                   npm publish
               env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
