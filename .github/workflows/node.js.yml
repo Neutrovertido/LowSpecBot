@@ -4,26 +4,34 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [12.x]
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  regitry-url: https://npm.pkg.github.com/
+                  scope: "@OWNER"
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
+            - run: npm ci
+            - run: npm run build --if-present
+            - run: npm test
+            - run: |
+                  echo registry=https://npm.pkg.github.com/OWNER >> .npmrc
+                  npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.G_TOKEN }}
