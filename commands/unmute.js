@@ -1,6 +1,6 @@
 module.exports = {
   name: "unmute",
-  description: "Unmutes people in a voice channel.",
+  description: "Unmutes muted users on a voice channel.",
   execute(message, args) {
     const voiceChannel = message.member.voice.channel;
     const author = message.guild.member(message.author);
