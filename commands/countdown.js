@@ -4,7 +4,15 @@ module.exports = {
     execute(message, args) {
         const author = message.guild.member(message.author);
         if (author.hasPermission("ADMINISTRATOR")) {
-            guild.channels.create("Countdown:");
+            message.guild.channels.create('Countdown:', {
+                type: 'voice',
+                permissionsOverwrites: [
+                    {
+                        
+                    }
+                ]
+            });
+            message.channel.send(`:alarm_clock: Countdown created!`);
         } else {
             message.channel.send(`:no_entry: You don't have permission to perform that command!`);
         }
