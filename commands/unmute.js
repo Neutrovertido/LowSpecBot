@@ -12,14 +12,14 @@ module.exports = {
           if (member.voice.mute === true) {
             someone = true;
             member.voice.setMute(false);
-            message.channel.send(
-              ":microphone2: **Successfully unmuted everyone in the voice channel!**"
-            );
           }
           if (!someone) {
             message.channel.send(`:warning: There's nobody to unmute!`);
           }
         });
+        message.channel.send(
+          ":microphone2: **Successfully unmuted everyone in the voice channel!**"
+        );
       } catch {
         message.channel.send(`:no_entry: You must be connected to a channel to issue this command!`);
       }
