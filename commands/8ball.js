@@ -14,6 +14,5 @@ module.exports = {
         const max = phrases.length
         let seed = Math.floor(Math.random() * (max));
         message.channel.send(phrases[seed]);
-        console.log(message.author);
     }
 }
