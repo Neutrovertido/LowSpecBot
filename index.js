@@ -56,7 +56,7 @@ bot.on("message", (message) => {
   if (!message.author.bot) {
     try {
       if (fs.existsSync(checkPath)) {
-        let responseSeed = Math.round(Math.random() * (15));
+        let responseSeed = Math.round(Math.random() * (30));
         console.log(responseSeed)
         if (responseSeed === 12) {
           const args = message.content.slice(prefix.length).trim().split(/ +/);
