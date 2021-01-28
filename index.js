@@ -22,7 +22,7 @@ for (const file of commandFiles) {
   bot.commands.set(command.name, command);
 }
 
-// Prefix
+// Needed Variables
 let prefix;
 try{
   prefix = JSON.parse(fs.readFileSync("./config.json")).prefix;
@@ -30,6 +30,11 @@ try{
   const config = {"prefix":"_"};
   fs.writeFileSync("./config.json", JSON.stringify(config))
   prefix = "_";
+}
+
+let phrasesExist = false;
+if (fs.existsSync("./commands/8ball.json")) {
+  phrasesExist = true;
 }
 
 // Commands Handling
@@ -52,12 +57,11 @@ bot.on("message", (message) => {
 
 bot.on("message", (message) => {
   //Random response
-  let checkPath = "./commands/8ball.json"
   if (!message.author.bot) {
     try {
-      if (fs.existsSync(checkPath)) {
+      if (phrasesExist) {
         let responseSeed = Math.round(Math.random() * (30));
-        console.log(responseSeed)
+        //console.log(responseSeed)
         if (responseSeed === 12) {
           const args = message.content.slice(prefix.length).trim().split(/ +/);
           const command = args.shift().toLowerCase();
