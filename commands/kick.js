@@ -13,7 +13,7 @@ module.exports = {
           member
             .kick(`Reason: ${actualReason}`)
             .then(() => {
-              if (reason.length > 0) {
+              if (actualReason.length > 0) {
                 message.reply(`Successfully kicked ${reason[0]} for reason: ${actualReason}`);
               } else {
                 message.reply(`Successfully kicked ${reason[0]}`);
