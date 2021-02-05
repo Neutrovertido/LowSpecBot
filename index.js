@@ -37,6 +37,11 @@ if (fs.existsSync("./commands/8ball.json")) {
   phrasesExist = true;
 }
 
+let softBannedExist = false;
+if (fs.existsSync("./commands/soft-banned.json")) {
+  softBannedExist = true;
+}
+
 // Commands Handling
 bot.on("message", (message) => {
 
@@ -55,6 +60,7 @@ bot.on("message", (message) => {
   }
 });
 
+// Modules cycle evaluations
 bot.on("message", (message) => {
   //Random response
   if (!message.author.bot) {
@@ -69,7 +75,6 @@ bot.on("message", (message) => {
             bot.commands.get("8ball").execute(message, args);
           } catch (error) {
             console.error(error);
-            message.reply("there was an error trying to execute that command!");
           }
         }
       }
@@ -77,6 +82,12 @@ bot.on("message", (message) => {
       message.channel.send(":warning: A critical error has ocurred! Please check out the logs!");
       console.error(err);
     }
+  }
+
+  // Soft-bans
+  let sbIDs = JSON.parse(fs.readFileSync("./commands/soft-banned.json")).soft_banned;
+  if (sbIDs.indexOf(message.author.id) > -1) {
+    message.delete();
   }
 });
 
