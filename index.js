@@ -66,7 +66,7 @@ bot.on("message", (message) => {
   if (!message.author.bot) {
     try {
       if (phrasesExist) {
-        let responseSeed = Math.round(Math.random() * (30));
+        let responseSeed = Math.round(Math.random() * (50));
         //console.log(responseSeed)
         if (responseSeed === 12) {
           const args = message.content.slice(prefix.length).trim().split(/ +/);
