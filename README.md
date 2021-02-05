@@ -16,7 +16,7 @@
 -   Modular and expandable commands!
 -   Help commands expands as much as the commands do!
 -   Settings on a .json file!
--   Kick and Ban from a server!
+-   Kick, ban and soft-ban from a server!
 -   Avatar display!
 -   Clean spam command!
 -   8ball (random phrases)!
