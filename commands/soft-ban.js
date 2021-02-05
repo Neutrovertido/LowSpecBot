@@ -11,13 +11,14 @@ module.exports = {
             const actualReason = reason.slice(1, reason.length).join(" ");
             if (target) {
                 const member = message.guild.member(target);
+                const jsonRoute = "./commands/soft-banned.json";
                 if (member) {
                     let soft_banned = [];
                     try {
-                        soft_banned = JSON.parse(fs.readFileSync("./commands/soft-banned.json")).soft_banned;
+                        soft_banned = JSON.parse(fs.readFileSync(jsonRoute)).soft_banned;
                     } catch {
                         soft_banned = { "soft_banned": [] };
-                        fs.writeFileSync("./commands/soft-banned.json", JSON.stringify(soft_banned))
+                        fs.writeFileSync(jsonRoute, JSON.stringify(soft_banned))
                     }
                     if (soft_banned.indexOf(member.user.id) > -1) {
                         soft_banned.splice(soft_banned.indexOf(member.user.id));
@@ -27,7 +28,7 @@ module.exports = {
                         message.reply(`Succesfully soft-banned ${member}`);
                     }
                     targets = { "soft_banned": soft_banned };
-                    fs.writeFileSync("./commands/soft-banned.json", JSON.stringify(targets))
+                    fs.writeFileSync(jsonRoute, JSON.stringify(targets))
                 } else {
                     message.reply("That user isn't in this guild!");
                 }

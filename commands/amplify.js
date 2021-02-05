@@ -46,6 +46,7 @@ module.exports = {
             });
 
             let result = amplified.join(' ');
+            result = '**' + message.member.nickname + ':  **' + result;
 
             message.delete();
             message.channel.send(result);
