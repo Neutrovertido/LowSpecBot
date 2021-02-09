@@ -24,12 +24,15 @@ for (const file of commandFiles) {
 
 // Needed Variables
 let prefix;
+let responses;
 try{
   prefix = JSON.parse(fs.readFileSync("./config.json")).prefix;
+  responses = JSON.parse(fs.readFileSync("./config.json")).responses;
 } catch {
-  const config = {"prefix":"_"};
+  const config = { "prefix": "_", "responses": true };
   fs.writeFileSync("./config.json", JSON.stringify(config))
   prefix = "_";
+  responses = true;
 }
 
 let phrasesExist = false;
@@ -65,7 +68,7 @@ bot.on("message", (message) => {
   //Random response
   if (!message.author.bot) {
     try {
-      if (phrasesExist) {
+      if (phrasesExist && responses) {
         let responseSeed = Math.round(Math.random() * (50));
         //console.log(responseSeed)
         if (responseSeed === 12) {
