@@ -20,6 +20,7 @@
 -   Avatar display!
 -   Clean spam command!
 -   8ball (random phrases)!
+-   Toggleable random responses!
 -   Mutes & unmutes everyone on a voice channel! (Useful for games such as Among Us!)
 -   Text to emoji!
 
