@@ -1,1 +1,1 @@
-worker: npm start
+worker: npm start 2>&1| tee -a latest.log
