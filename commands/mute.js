@@ -13,14 +13,15 @@ module.exports = {
             someone = true;
             member.voice.setMute(true);
           }
-          if (!someone) {
-            message.channel.send(`:warning: There's nobody to mute!`);
-          }
         }
         );
+        if (!someone) {
+          message.channel.send(`:warning: There's nobody to mute!`);
+        } else {
         message.channel.send(
           ":mute: **Successfully muted everyone in the voice channel!**"
-        );
+          );
+        }
       } catch {
         message.channel.send(`:no_entry: You must be connected to a channel to issue this command!`);
       }
