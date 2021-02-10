@@ -99,7 +99,7 @@ bot.on("message", (message) => {
     if (sbIDs.indexOf(message.author.id) > -1) {
       ignore = true;
       let bannedMessage = dateify(message.content);
-      console.log(`⛔ Soft banned message: ${bannedMessage}`);
+      console.log(`🚫 Soft banned message: ${bannedMessage}`);
       message.delete();
     } else {
       ignore = false;

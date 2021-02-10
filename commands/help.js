@@ -20,5 +20,6 @@ module.exports = {
     description: "Prints information about every command",
     execute(message, args) {
         message.channel.send(helpEmbed);
+        console.log("📜 Help message sent!");
     }
 }

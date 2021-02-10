@@ -49,9 +49,11 @@ module.exports = {
             result = '**' + message.member.nickname + ':  **' + result;
 
             message.delete();
+            console.log("🅰 Emojified result");
             message.channel.send(result);
         } else {
             message.reply("You must specify a message!");
+            console.error("❌ Message not specified!");
         }
     }
 }

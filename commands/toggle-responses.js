@@ -32,17 +32,21 @@ module.exports = {
 
             if (value.length > 0 && value != "on" && value != "off") {
                 message.reply('please use the arguments: `on/off` or leave empty.');
+                console.error(`❌ Invalid argument!`);
             } else {
                 fs.writeFileSync("./config.json", JSON.stringify(config));
                 if (config.responses === true) {
-                    message.reply("Random responses has been set to **ON**")
+                    message.reply("🎲 Random responses has been set to **ON**")
+                    console.log(`🎲 Random responses: ON`);
                 } else {
-                    message.reply("Random responses has been set to **OFF**")
+                    message.reply("🎲 Random responses has been set to **OFF**")
+                    console.log(`🎲 Random responses: OFF`);
                 }
             }
 
         } else {
-            message.channel.send("You do not have permission to issue that command!");
+            message.channel.send("❌ You do not have permission to issue that command!");
+            console.error(`❌${author} doesn't have permission to issue that command!`);
         }
     },
 };

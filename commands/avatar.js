@@ -9,9 +9,10 @@ module.exports = {
       try{
         target = message.mentions.users.first()
       } catch {
-        console.error("Failed to show tagged user!")
+        console.error("❌ Failed to show tagged user!")
       }
     }
+    console.log(`🖼 ${target.username}'s avatar displayed successfully!`);
     const avatarEmbed = new MessageEmbed()
       .setColor("#FB3B5E")
       .setTitle(`${target.username}'s avatar:`)
@@ -20,8 +21,8 @@ module.exports = {
           format: "png",
           dynamic: true,
         })}`
-      )
-    return message.channel.send(
+        )
+        return message.channel.send(
       avatarEmbed
     );
   },
