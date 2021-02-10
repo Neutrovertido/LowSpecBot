@@ -25,7 +25,11 @@ module.exports = {
                         message.reply(`Successfully removed the soft-ban of ${member}`);
                     } else {
                         soft_banned.push(member.user.id);
-                        message.reply(`Succesfully soft-banned ${member}`);
+                        if (actualReason.length > 0) {
+                            message.reply(`Succesfully soft-banned ${member} for reason: ${actualReason}`)
+                        } else {
+                            message.reply(`Succesfully soft-banned ${member}`);
+                        }
                     }
                     targets = { "soft_banned": soft_banned };
                     fs.writeFileSync(jsonRoute, JSON.stringify(targets))
