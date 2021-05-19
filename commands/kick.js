@@ -13,24 +13,30 @@ module.exports = {
           member
             .kick(`Reason: ${actualReason}`)
             .then(() => {
-              if (reason.length > 0) {
-                message.reply(`Successfully kicked ${reason[0]} for reason: ${actualReason}`);
+              if (actualReason.length > 0) {
+                message.reply(`⛔ Successfully kicked ${reason[0]} for reason: ${actualReason}`);
+                console.log(`⛔ ${author} successfully kicked ${reason[0]} for reason: ${actualReason}`);
               } else {
-                message.reply(`Successfully kicked ${reason[0]}`);
+                message.reply(`⛔ Successfully kicked ${reason[0]}`);
+                console.log(`⛔ ${author} successfully kicked ${reason[0]}`);
               }
             })
             .catch((err) => {
-              message.reply("I was unable to kick the member");
+              message.reply("❌ I was unable to kick the member");
+              console.error(`❌ Unable to kick ${member}`);
               console.error(err);
             });
         } else {
-          message.reply("That user isn't in this guild!");
+          message.reply("❌ That user isn't in this guild!");
+          console.error("❌ That user isn't in this guild!");
         }
       } else {
-        message.reply("You didn't mention the user to kick!");
+        message.reply("❌ You didn't mention the user to kick!");
+        console.error("❌ User to kick not specified!");
       }
     } else {
-      message.reply("You don't have the permission to do that!");
+      message.reply("❌ You don't have the permission to do that!");
+      console.error(`❌ ${author} doesn't have the permission to do that!`);
     }
   },
 };

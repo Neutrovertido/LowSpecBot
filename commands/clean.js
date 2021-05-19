@@ -17,10 +17,18 @@ module.exports = {
                 }
                 message.channel.bulkDelete(fetched);
                 message.channel.send(`:recycle: Deleted ${qa} messages!`);
+                let messages = fetched;
+                let amount = 0;
+                messages.forEach(e => {
+                    console.log(`♻ Attempting to delete: "${e.content}"`);
+                    amount++;
+                });
+                console.log(`💥 Deleted ${amount} messages!`);
             }
             clean();
         } else {
-            message.reply("You don't have sufficient permission to issue that command!");
+            message.reply("⛔ You don't have sufficient permission to issue that command!");
+            console.error(`⛔ ${author} doesn't have sufficient permission to issue that command!`)
         }
     },
 };

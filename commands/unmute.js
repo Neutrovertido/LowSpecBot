@@ -15,16 +15,20 @@ module.exports = {
           }
           if (!someone) {
             message.channel.send(`:warning: There's nobody to unmute!`);
+            console.log(`⚠ No unmutable targets!`);
           }
         });
         message.channel.send(
           ":microphone2: **Successfully unmuted everyone in the voice channel!**"
         );
+        console.log(`📣 ${author} has unmuted ${voiceChannel}`);
       } catch {
         message.channel.send(`:no_entry: You must be connected to a channel to issue this command!`);
+        console.error(`❌ ${author} isn't on a voice channel, therefore unable to unmute!`);
       }
     } else {
       message.channel.send(`:no_entry: You don't have permission to perform that command!`)
+      console.error(`❌ ${author} doesn't have sufficient permission to perform that command!`);
     }
   },
 };
