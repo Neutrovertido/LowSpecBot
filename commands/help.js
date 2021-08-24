@@ -18,6 +18,12 @@ module.exports = {
     const helpEmbed = new MessageEmbed()
       .setColor("#010101")
       .setTitle("Current Commands")
+      .setThumbnail("https://i.imgur.com/mWRCgIm.png")
+      .setAuthor(
+        "LowSpecBot",
+        "https://i.imgur.com/mWRCgIm.png",
+        "https://github.com/Neutrovertido/LowSpecBot"
+      )
       .setDescription(description)
       .setTimestamp();
 
