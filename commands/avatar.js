@@ -20,6 +20,7 @@ module.exports = {
         `${target.displayAvatarURL({
           format: "png",
           dynamic: true,
+          size: 1024,
         })}`
         )
         return message.channel.send(
