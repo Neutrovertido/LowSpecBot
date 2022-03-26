@@ -105,6 +105,12 @@ bot.on("message", (message) => {
       ignore = false;
     }
   }
+
+  // @channel
+  let neraiyo = message.content.toLowerCase();
+  if (neraiyo.includes("nullpo")) {
+    message.channel.send("Gah!");
+  }
 });
 
 // Commands Handling
