@@ -1,1 +1,4 @@
-{"prefix":"_","responses":true}
+{
+    "prefix": "_",
+    "responses": false
+}
