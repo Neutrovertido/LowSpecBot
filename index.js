@@ -111,6 +111,14 @@ bot.on("message", (message) => {
   if (neraiyo.includes("nullpo")) {
     message.channel.send("Gah!");
   }
+
+  // Don't cry 583753611067129856
+  if (message.author.id === '583753611067129856') {
+    if (message.attachments.size > 0) {
+      message.channel.send('https://cdn.discordapp.com/attachments/557422582584836109/980875313175232512/unknown.png');
+    }
+  }
+
 });
 
 // Commands Handling
